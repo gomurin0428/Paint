@@ -20,4 +20,4 @@ jobs:
            platform: x64
     - uses: actions/checkout@v3
     - name: make
-      run: gcc -DUNICODE -w main.c IComponent.cpp Canvas.cpp -lgdi32
+      run: mingw32-make
