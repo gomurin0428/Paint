@@ -1,0 +1,28 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+
+
+    steps:
+    
+    - uses: egor-tensin/setup-mingw@v2
+      with:
+           platform: x64
+    - uses: actions/checkout@v3
+    - name: make
+      run: mingw32-make
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+        name: executableFile
+        path: .
